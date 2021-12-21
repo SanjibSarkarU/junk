@@ -1,7 +1,8 @@
 # #https://stackoverflow.com/questions/34764535/why-cant-matplotlib-plot-in-a-different-thread
+""" This is a structure """
 import matplotlib
 matplotlib.use('TkAgg')
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import multiprocessing
 import time
 import random
@@ -50,7 +51,7 @@ def updateplot(q):
         result=q.get_nowait()
 
         if result !='Q':
-             print result
+             print (result)
                  #here get crazy with the plotting, you have access to all the global variables that you defined in the plot function, and have the data that the simulation sent.
              line.set_ydata([1,result,10])
              ax.draw_artist(line)
